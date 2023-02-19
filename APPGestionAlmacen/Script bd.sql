@@ -1,0 +1,10 @@
+CREATE SCHEMA `appgestalmacen` ;
+
+CREATE TABLE `appgestalmacen`.`usuarios` (
+  `USUARIO` INT NOT NULL DEFAULT 0,
+  `NOMBRE` VARCHAR(30) NOT NULL,
+  `CONTRASENYA` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`USUARIO`));
+  
+INSERT INTO `appgestalmacen`.`usuarios`(`USUARIO`,`NOMBRE`,`CONTRASENYA`)
+VALUES(0,"admin","1234");
