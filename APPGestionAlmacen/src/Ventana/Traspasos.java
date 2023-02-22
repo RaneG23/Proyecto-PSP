@@ -4,7 +4,6 @@
  */
 package Ventana;
 
-import Control.ControlRecepcionAlmacen;
 import Control.ControlTraspasos;
 import javax.swing.JOptionPane;
 
@@ -41,7 +40,7 @@ public class Traspasos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         tfUnidades = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Traspasos Manuales");
 
         jLabel1.setText("Artículo");

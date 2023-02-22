@@ -35,6 +35,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pnBotones = new javax.swing.JPanel();
         btTraspaso = new javax.swing.JButton();
         btVerStock = new javax.swing.JButton();
+        btMovimiento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("App Gestión Almacén");
@@ -84,6 +85,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btMovimiento.setText("Crear Movimiento");
+        btMovimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMovimientoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnBotonesLayout = new javax.swing.GroupLayout(pnBotones);
         pnBotones.setLayout(pnBotonesLayout);
         pnBotonesLayout.setHorizontalGroup(
@@ -92,7 +100,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(0, 153, Short.MAX_VALUE)
                 .addGroup(pnBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btTraspaso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btVerStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btVerStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btMovimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(162, Short.MAX_VALUE))
         );
         pnBotonesLayout.setVerticalGroup(
@@ -100,7 +109,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(pnBotonesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btTraspaso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(btMovimiento)
+                .addGap(18, 18, 18)
                 .addComponent(btVerStock)
                 .addContainerGap())
         );
@@ -120,9 +131,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         new VerStock().setVisible(true);
     }//GEN-LAST:event_btVerStockActionPerformed
 
+    private void btMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMovimientoActionPerformed
+        new GeneraMov().setVisible(true);
+    }//GEN-LAST:event_btMovimientoActionPerformed
+
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btMovimiento;
     private javax.swing.JButton btTraspaso;
     private javax.swing.JButton btVerStock;
     private javax.swing.JLabel jLabel1;
