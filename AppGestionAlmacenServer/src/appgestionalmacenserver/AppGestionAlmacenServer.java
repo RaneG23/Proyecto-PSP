@@ -10,8 +10,6 @@ import java.io.*;
 import java.sql.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.swing.table.DefaultTableModel;
@@ -39,7 +37,9 @@ public class AppGestionAlmacenServer {
             String pass = prop.getPassBd();
             
             con = new Conexion();
-            con.conectaBD(ruta,user,pass);
+            if (!con.conectaBD(ruta,user,pass)) {
+                System.exit(0);
+            }
             
             
             servicio = new ServerSocket(9999);
@@ -55,6 +55,9 @@ public class AppGestionAlmacenServer {
                         break;
                     case 1: 
                         new Thread(new HiloStock(socketservicio)).start();
+                        break;
+                    case 2: 
+                        new Thread(new HiloInsertar(socketservicio)).start();
                         break;
                 }
                 
@@ -139,6 +142,41 @@ class HiloLogin implements Runnable{
             System.err.println("Error al contactar con el cliente");
         }
     } 
+}
+
+class HiloInsertar implements Runnable {
+    private Socket socket;
+    private DataInputStream entrada;
+    private DataOutputStream salida;
+    
+    public HiloInsertar(Socket socket){
+        this.socket = socket;
+    }
+    
+    @Override
+    public void run() {
+        try { 
+            entrada = new DataInputStream(socket.getInputStream());
+            salida = new DataOutputStream(socket.getOutputStream());
+            
+            String sqlDesc = Encriptador.desencripta((String)entrada.readUTF(), AppGestionAlmacenServer.CLAVE_SECRETA);
+            
+            boolean correcto = AppGestionAlmacenServer.con.insertaDato(sqlDesc);
+            
+            salida.writeBoolean(correcto);
+        } catch(IOException e){
+            System.err.println(e);
+            e.getStackTrace();
+        } finally {
+            try { 
+                salida.writeInt(0);
+                entrada.close();
+                salida.close();
+            } catch(IOException e){
+                System.err.println(e);
+            }   
+        }
+    }
 }
 
 class Encriptador {

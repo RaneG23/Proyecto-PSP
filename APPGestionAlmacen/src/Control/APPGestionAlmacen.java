@@ -6,10 +6,6 @@ package Control;
 
 import Ventana.Login;
 import Ventana.MenuPrincipal;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
 
 /**
  *

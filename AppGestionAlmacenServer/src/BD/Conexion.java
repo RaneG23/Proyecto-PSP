@@ -62,4 +62,22 @@ public class Conexion {
             return rs;
         }
     }
+    
+    public boolean insertaDato(String sql) {
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try { 
+            // Preparamos la sentencia
+            ps = con.prepareStatement(sql);
+            int insertados = ps.executeUpdate();
+            return (insertados > 0);
+        } catch (SQLException ex) {
+            System.out.println("Se ha producido un error");
+            ex.getStackTrace();
+            return false;
+        } finally {
+            try{rs.close();} catch (Exception e) {}
+            try{ps.close();} catch (Exception e) {}
+        }
+    }
 }

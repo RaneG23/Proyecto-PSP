@@ -116,3 +116,31 @@ INSERT INTO `appgestalmacen`.`stocks`
 (`almacen`,`articulo`,`stock`)
 VALUES
 ("ALV","00005",18);
+
+
+CREATE TABLE `appgestalmacen`.`traspasos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `alm_origen` VARCHAR(3) NULL,
+  `alm_destino` VARCHAR(3) NULL,
+  `articulo` VARCHAR(15) NULL,
+  `unidades` INT NULL,
+  `recibido` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_traspasos_alm_ori_idx` (`alm_origen` ASC) VISIBLE,
+  INDEX `fk_traspasos_alm_dst_idx` (`alm_destino` ASC) VISIBLE,
+  INDEX `fk_traspasos_art_idx` (`articulo` ASC) VISIBLE,
+  CONSTRAINT `fk_traspasos_alm_ori`
+    FOREIGN KEY (`alm_origen`)
+    REFERENCES `appgestalmacen`.`almacenes` (`almacen`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_traspasos_alm_dst`
+    FOREIGN KEY (`alm_destino`)
+    REFERENCES `appgestalmacen`.`almacenes` (`almacen`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_traspasos_art`
+    FOREIGN KEY (`articulo`)
+    REFERENCES `appgestalmacen`.`articulos` (`articulo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);

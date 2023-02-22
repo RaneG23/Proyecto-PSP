@@ -33,7 +33,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pnTitulo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         pnBotones = new javax.swing.JPanel();
-        btRecepcionAlm = new javax.swing.JButton();
+        btTraspaso = new javax.swing.JButton();
         btVerStock = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,11 +69,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pnBotones.setToolTipText("");
         pnBotones.setPreferredSize(new java.awt.Dimension(500, 500));
 
-        btRecepcionAlm.setText("Recepción Almacén");
-        btRecepcionAlm.setMargin(new java.awt.Insets(2, 50, 2, 50));
-        btRecepcionAlm.addActionListener(new java.awt.event.ActionListener() {
+        btTraspaso.setText("Traspaso Manual");
+        btTraspaso.setMargin(new java.awt.Insets(2, 50, 2, 50));
+        btTraspaso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btRecepcionAlmActionPerformed(evt);
+                btTraspasoActionPerformed(evt);
             }
         });
 
@@ -89,17 +89,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pnBotonesLayout.setHorizontalGroup(
             pnBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBotonesLayout.createSequentialGroup()
-                .addGap(0, 147, Short.MAX_VALUE)
+                .addGap(0, 153, Short.MAX_VALUE)
                 .addGroup(pnBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btRecepcionAlm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btTraspaso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btVerStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         pnBotonesLayout.setVerticalGroup(
             pnBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBotonesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btRecepcionAlm)
+                .addComponent(btTraspaso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btVerStock)
                 .addContainerGap())
@@ -111,9 +111,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btRecepcionAlmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRecepcionAlmActionPerformed
-        new RecepcionAlmacen().setVisible(true);
-    }//GEN-LAST:event_btRecepcionAlmActionPerformed
+    private void btTraspasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTraspasoActionPerformed
+       // new RecepcionAlmacen().setVisible(true);
+       new Traspasos().setVisible(true);
+    }//GEN-LAST:event_btTraspasoActionPerformed
 
     private void btVerStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVerStockActionPerformed
         new VerStock().setVisible(true);
@@ -122,7 +123,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btRecepcionAlm;
+    private javax.swing.JButton btTraspaso;
     private javax.swing.JButton btVerStock;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel pnBotones;
