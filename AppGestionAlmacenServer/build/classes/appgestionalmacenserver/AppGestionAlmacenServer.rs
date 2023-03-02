@@ -1,0 +1,5 @@
+appgestionalmacenserver.HiloInsertar
+appgestionalmacenserver.Encriptador
+appgestionalmacenserver.HiloStock
+appgestionalmacenserver.HiloLogin
+appgestionalmacenserver.AppGestionAlmacenServer

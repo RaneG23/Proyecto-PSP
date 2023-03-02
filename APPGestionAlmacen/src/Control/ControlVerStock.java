@@ -35,7 +35,7 @@ public class ControlVerStock {
     public void dameStock(String articulo) {
         
         try {
-            socket = new Socket("localhost",9999);
+            socket = new Socket(APPGestionAlmacen.IP,9999);
             String sql = "SELECT * FROM stocks where articulo='"+articulo+"'";
             String sqlEnc = Encriptador.encripta(sql, APPGestionAlmacen.CLAVE_SECRETA);
             sal = new DataOutputStream(socket.getOutputStream());

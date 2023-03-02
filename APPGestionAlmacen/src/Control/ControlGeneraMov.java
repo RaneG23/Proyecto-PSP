@@ -26,7 +26,7 @@ public class ControlGeneraMov {
     
     public void crearMovimiento(String Tipo, String Alm, String Art, int Ud){
         try {
-            socket = new Socket("localhost",9999);
+            socket = new Socket(APPGestionAlmacen.IP,9999);
             
             if (Tipo.equals("S")) {
                 Ud = Ud * -1;

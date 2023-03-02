@@ -25,7 +25,7 @@ public class ControlLogin {
     public ControlLogin(Login ventana) {
         this.ventana = ventana;
         try {
-            socket = new Socket("localhost",9999);
+            socket = new Socket(APPGestionAlmacen.IP,9999);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(ventana, "No se ha encontrado el servidor. Saliendo.", "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(0);

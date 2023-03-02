@@ -27,7 +27,7 @@ public class ControlTraspasos {
     
     public void crearTraspaso(String AlmO, String AlmD, String Art, int Ud){
         try {
-            socket = new Socket("localhost",9999);
+            socket = new Socket(APPGestionAlmacen.IP,9999);
             String sql = "INSERT INTO traspasos(alm_origen,alm_destino,articulo,unidades,recibido) " +
                     "VALUES('"+AlmO+"','"+AlmD+"','"+Art+"',"+Ud+",0)";
             String sqlEnc = Encriptador.encripta(sql, APPGestionAlmacen.CLAVE_SECRETA);

@@ -6,6 +6,7 @@ package Control;
 
 import Ventana.Login;
 import Ventana.MenuPrincipal;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,11 +17,13 @@ public class APPGestionAlmacen {
     private static Login login;
     private static MenuPrincipal menu;
     public static final String CLAVE_SECRETA = "clave_secreta_33";
+    public static String IP;
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        IP = JOptionPane.showInputDialog("Introduce la ip del servidor:");
         login();
     }
     
